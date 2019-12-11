@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row mt-5">
+  <div class="col-md-7 ml-auto mr-auto my-5 bg-white">
+  <div class="mt-5 container">
+   <h2 class="mt-5 header">{{post.title}}</h2>
+   <p class="text-center postcontent">Published on <span class="text-secondary">{{post.created_at}}</span> by <span class="text-secondary">{{post.user}}</span></p>
+   <hr>
+   <div class="postcontent">{{ post.text|safe }}</div>
+   {% if request.user.is_authenticated and request.user == post.user %}
+   <a href="{% url 'post:update' username=post.user pk=post.pk %}" class='btn btn-info'> Update Post</a>
+   <a href="{% url 'post:delete' pk=post.pk username=post.user %}" class='btn btn-danger'> Delete Post</a>
+   {% endif %}
+   <hr>
+   {% if post.comments.count == 0 %}
+     <p>No comment</p>
+     {% else %}
+   <h4>{{ post.comments.count }} comment{{ post.comments.count|pluralize }}</h4>
+   {% for comment in post.comments.all %}
+   <span class="postcontent"> <span class="text-info">{{comment.text|safe}}</span>
+   <small class="date p-0">{{comment.author}}, {{comment.create_date}}</small></span>
+   {% endfor %}
+   {% endif %}
+   <h5 class="mt-1"> <a href="{% url 'addComment' pk=post.pk %} ">Add Comment</a></h5>
+   </div>
+   </div>
+   </div>
+   {% endblock content %}

@@ -1,0 +1,38 @@
+body{
+    background-image: url(../images/matthew-guay-Q7wDdmgCBFg-unsplash.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.header{
+    color: rgb(241, 40, 40);
+    font-size: 2rem ;
+    font-family: "High Tower Text";
+    text-align: center;
+}
+.posttitle{
+    font-family: "Lucida Console";
+}
+a{
+    text-decoration: none;
+}
+.date{
+    font-weight: lighter;
+    font-family: Nsimsun;
+    font-size: 1rem;
+}
+.postcontent{
+  color:rgb(43, 36, 36);
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  text-indent: 2rem;
+  line-height: 2rem;
+  font-family: candara;
+  margin-bottom: 1rem;
+}
+set{
+    height: fit-content;
+}
+span p{
+    margin: 0;
+}

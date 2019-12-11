@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+  <div class="col-md-8 ml-auto mr-auto">
+ <h1 class='header mt-5'>{{group.name}}</h1>
+ <p class="postcontent text-light"> {{group.description}}</p> 
+ {% if group.posts.count == 0 %}
+ <p class="postcontent text-danger">No post in {{group.name}} yet</p>
+ {% else %}
+ <p class="postcontent"><span class="badge badge-dark mr-1">{{group.posts.count}}</span>Post{{group.posts.count|pluralize}}</p>
+ {% for post in group.posts.all %}
+ <div class="card">
+    <div class="container">
+      <div class="card-body">
+          <h5 class="card-title"><p> <span class="text-secondary"><span class='date'>{{post.created_at}} by {{post.user}}</span>
+              <a class="posttitle" href="{% url 'post:single' pk=post.pk username=post.user %}"><br>{{post.title}} <br></a>
+          </span></p></h5> <hr>
+          <div class="card-text postcontent">{{post.text|safe|truncatechars:100}} <a href="{% url 'post:single' pk=post.pk username=post.user %}"><small class="text-muted">Read more</small>
+          </a>  <br> <a href=" {% url 'group:detail' slug=post.group.slug %} " ><small class="text-danger">{{post.group}}</small></a></div>
+      </div>
+  </div>
+  </div>
+ {% endfor %}  
+ {% endif %}
+ </div>
+ </div>
+{% endblock content %}

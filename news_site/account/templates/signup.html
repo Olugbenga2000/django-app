@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% block content %}
+<div class="row mt-5">
+  <div class="col-lg-7 ml-auto mr-auto bg-light">
+  <div class = "container">
+      <h1 class="mt-5 header text-center">Sign Up</h1>
+      <form method="POST">
+          {% csrf_token %}
+          {% bootstrap_form form %}
+          <input type="submit", value = "Sign Up" class = "btn btn-primary btn-block">
+          <small class="muted lead"> Have an account already?<a href="{% url 'login' %}" class="text-danger ">Login</a></small>
+      </form>
+      </div>
+  </div>  
+{% endblock %}
+    

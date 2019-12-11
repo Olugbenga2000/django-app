@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% block content %}
+<div class="row mt-5 pt-5">
+    <div class="col-lg-7 ml-auto mr-auto bg-light">
+    <div class = "container">
+        <h1 class="mt-5 header text-center">Login</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <input type="submit", value = "Login" class = "btn btn-primary btn-block">
+          <p class="mb-5">Forgot password?click <a class="text-danger" href="{% url 'password_reset' %}">Here</a> to reset</p>
+      </form>
+  </div>  
+  </div>
+  </div>
+{% endblock %}

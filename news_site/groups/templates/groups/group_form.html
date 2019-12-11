@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% block content %}
+<div class='row'>
+    <div class="col-lg-6 mr-auto ml-auto">
+  <div class="container">
+  <h3 class="mt-5 text-center text-info">Create a new group</h3>
+  <form action="{% url 'group:create' %}" method="POST">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input type="submit" class="btn btn-outline-primary btn-block text-white" value = 'Create'>
+  </form>
+  </div>
+  </div>
+  </div>
+{% endblock content %}

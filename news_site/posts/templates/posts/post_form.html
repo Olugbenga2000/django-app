@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% block content %}
+<div class='row'>
+  <div class="col-lg-6 mr-auto ml-auto">
+<div class="container">
+  <h2 class="mt-5 text-center text-info">Create a post</h2>
+<form method="post">
+    {% csrf_token %}
+{% bootstrap_form form %}
+<input type="submit" value="Post" class="btn btn-outline-primary btn-block">
+</form>
+</div>
+</div>
+</div>
+{% endblock content %}
